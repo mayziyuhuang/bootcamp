@@ -10,6 +10,19 @@ def ecdf(data):
 
     """a function to compute the ECDF"""
     x = np.sort(data)
-    y = np.arange(0, 1, 1/len(data))
+    y = np.arange(1, len(x)+1) / len(x)
 
     return x, y
+
+
+
+def draw_bs_reps(data, func, size=1):
+    """Draw bootstrap replicates from data"""
+
+    n = len(data)
+    reps = np.empty(100000)
+    for i in range(100000):
+        bs_sample = np.random.choice(data, replace=True, size=n)
+        reps[i] = func(bs_sample)
+
+    return reps
