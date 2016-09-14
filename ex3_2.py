@@ -24,7 +24,7 @@ plt.plot(wt_IPTG, wt_fold, marker='.', linestyle='none', markersize=15)
 plt.plot(q18m_IPTG, q18m_fold, marker='.', linestyle='none', markersize=15)
 plt.plot(q18a_IPTG, q18a_fold, marker='.', linestyle='none', markersize=15)
 plt.xscale('log')
-plt.xlabel('IPTG (mM)')
+plt.xlabel('[IPTG] (mM)')
 plt.ylabel('fold change')
 
 #plt.show()
@@ -43,14 +43,19 @@ def fold_change(c, RK, KdA=0.017, KdI=0.002, Kswitch=5.8):
 RK_wt = 141.5
 RK_q18a = 16.56
 RK_q18m = 1328
-x = np.logspace(-5, 2, num = 400)
+
+# Make plots of curves (exercise solution)
+colors = sns.color_palette()
+
+x = np.logspace(-6, 2, num = 400)
+# don't need to keyin the keywork argument, it will use the default
 theor_wt = fold_change(x, RK_wt, 0.017, 0.002, 5.8)
 theor_q18a = fold_change(x, RK_q18a, 0.017, 0.002, 5.8)
 theor_q18m = fold_change(x, RK_q18m, 0.017, 0.002, 5.8)
 
-plt.plot(x, theor_wt, color='gray')
-plt.plot(x, theor_q18m, color='gray')
-plt.plot(x, theor_q18a, color= 'gray')
+plt.plot(x, theor_wt, color=colors[0])
+plt.plot(x, theor_q18m, color=colors[1])
+plt.plot(x, theor_q18a, color=colors[2])
 plt.title('fold change versus IPTG concentration')
 plt.legend(('wt', 'q18m', 'q18a', 'theory_wt', 'theory_q18m', 'theory_q18a'), loc='upper left')
 
