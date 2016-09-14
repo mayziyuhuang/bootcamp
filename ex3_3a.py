@@ -34,8 +34,14 @@ for i in range(1, len(t)):
 #plot the animals number growth
 plt.plot(t, r)
 plt.plot(t, f)
-plt.margins(0.02)
-plt.xlabel('time')
-plt.ylabel('number of foxes and rabbits')
-plt.legend(('rabbits', 'foxes'), loc='upper right')
+plt.xlabel('time (a.u.)')
+plt.ylabel('population')
+plt.legend(('rabbits', 'foxes'))
+
+# plt.plot(t, r)
+# plt.plot(t, f)
+# plt.margins(0.02)
+# plt.xlabel('time')
+# plt.ylabel('number of foxes and rabbits')
+# plt.legend(('rabbits', 'foxes'), loc='upper right')
 plt.show()
