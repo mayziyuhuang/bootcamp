@@ -15,7 +15,6 @@ def ecdf(data):
     return x, y
 
 
-
 def draw_bs_reps(data, func, size=1):
     """Draw bootstrap replicates from data"""
 
@@ -26,3 +25,11 @@ def draw_bs_reps(data, func, size=1):
         reps[i] = func(bs_sample)
 
     return reps
+
+def conf_int(data, percentile):
+    """ calculate confident interval"""
+    
+    lower_percen = (100 - percentile) / 2
+    higher_percen = 100 - lower_percen
+
+    return np.percentile(data, [lower_percen, higher_percen])
