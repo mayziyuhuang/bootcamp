@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set()
 import bootcamp_utils
+import numba
+
 
 
 @numba.jit(nopython=True)
@@ -74,3 +76,5 @@ plt.loglog(t_smooth, 1 / np.sqrt(t_smooth))
 # Label axes
 plt.xlabel('time (s)')
 plt.ylabel('CCDF')
+
+plt.show()
