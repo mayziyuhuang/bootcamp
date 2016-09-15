@@ -10,5 +10,10 @@ def n_neg(seq):
     # convert sequence to upper case
     seq = seq.upper()
 
+    # check for a valid sequence
+    for aa in seq:
+        if aa not in bd.aa.keys():
+            raise RuntimeError(aa + ' is not a valid amino acid.')
+
     # count E and D and retrun the count
     return seq.count('E') + seq.count('D')
