@@ -38,7 +38,13 @@ x_backtrack, y_backtrack = bootcamp_utils.ecdf(backtrack)
 plt.plot(x_backtrack, y_backtrack, marker='.', linestyle='none')
 plt.xscale('log')
 
-plt.show()
+#plt.show()
 
 # plot complementary cumulative distribution function
-#ccdf = c / t**(a + 1)
+plt.figure(3)
+plt.loglog(x_backtrack, 1 - y_backtrack, marker='.', linestyle='none')
+x_smooth = np.logspace(0.5, 8, 100)
+plt.loglog(x_smooth, 1 / np.sqrt(x_smooth))
+
+plt.ylabel('CCDF')
+plt.show()
