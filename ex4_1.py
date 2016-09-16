@@ -165,5 +165,4 @@ plt.xlim(6, 13)
 plt.ylim(8, 17)
 
 plt.legend(('fortis', 'scandens'), loc='lower right')
-
-plt.show()
+#%plt.show()
