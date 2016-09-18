@@ -1,13 +1,21 @@
 import pytest
 import lesson36a
 
-seq = 'ATGGAGAACAACGAAGCCCCCTCCCCCTCGGGATCCAACAACAACGAGAACAACAATGCAGCCCAGAAGAAGCTGCAGCAGACCCAAGCCAAGGTGGACGAGGTGGTCGGGATTATGCGTGTGAACGTGGAGAAGGTCCTGGAGCGGGACCAGAAGCTATCGGAACTGGGCGAGCGTGCGGATCAGCTGGAGCAGGGAGCATCCCAGTTCGAGCAGCAGGCCGGCAAGCTGAAGCGCAAGCAATGGTGGGCCAACATGAAGATGATGATCATTCTGGGCGTGATAGCCGTTGTGCTGCTCATCATCGTTCTGGTGTCGCTTTTCAATTGA'
+def test_find_codon(find_codon):
+    """
+    A function to test another function that looks for a codon
+    within a coding sequence
+    """
+    synapto_nuc = (
+        "ATGGAGAACAACGAAGCCCCCTCCCCCTCGGGATCCAACAACAACGAGAACAACAATGCAGCCCAGAAGA"
+        "AGCTGCAGCAGACCCAAGCCAAGGTGGACGAGGTGGTCGGGATTATGCGTGTGAACGTGGAGAAGGTCCT"
+        "GGAGCGGGACCAGAAGCTATCGGAACTGGGCGAGCGTGCGGATCAGCTGGAGCAGGGAGCATCCCAGTTC"
+        "GAGCAGCAGGCCGGCAAGCTGAAGCGCAAGCAATGGTGGGCCAACATGAAGATGATGATCATTCTGGGCG"
+        "TGATAGCCGTTGTGCTGCTCATCATCGTTCTGGTGTCGCTTTTCAATTGA")
 
-def test_find_codon():
-    assert lesson36a.find_codon_lesson6('ATG', seq)== 0
-    assert lesson36a.find_codon_lesson6('AAT', seq)== 54
-    assert lesson36a.find_codon_lesson6('TGT', seq)== -1
-    assert lesson36a.find_codon_lesson6('TGC', seq)== -1
+    assert find_codon('ATG', synapto_nuc) == 0
+    assert find_codon('AAT', synapto_nuc) == 54
+    assert find_codon('TGT', synapto_nuc) == -1
+    assert find_codon('TGC', synapto_nuc) == -1
 
-
-    #pytest.raises(RuntimeError, "lesson35.n_neg('Z')")
+    return None
